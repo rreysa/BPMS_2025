@@ -1,0 +1,348 @@
+/*-- scss:defaults --*/
+
+// Custom colours and variables
+$jet: #131516;
+$accent: #0197FD;
+$accent2: #9a2515;
+$right-arrow: "\2192"; // Unicode character for right arrow
+
+// fonts
+/* Load custom fonts */
+@font-face {
+  font-family: "Britannic Bold";
+  src: url("fonts/BRITANNIC.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro Light";
+  src: url("fonts/Avenir Next LT Pro Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Amasis MT Pro Light";
+  src: url("fonts/Amasis MT Std Light.ttf") format("truetype");
+}
+
+/* Apply fonts to specific elements */
+$font-title: "Britannic Bold", sans-serif;
+$font-heading: "Avenir Next LT Pro Light", sans-serif;
+$font-body: "Amasis MT Pro Light", serif;
+$presentation-font-size-root: 34px;
+
+
+$presentation-heading-color: $jet !default;
+$presentation-heading-font-weight: 200;
+//$presentation-heading-line-height: 2;
+//$presentation-block-margin: 28px;
+
+// colors
+//$body-bg: #f0f1eb !default;
+$body-color: $jet !default;
+$link-color: $accent !default;
+$selection-bg: #26351c !default;
+
+
+/*-- scss:rules --*/
+
+.reveal a {
+  line-height: 1.5em;
+  font-family: $font-body !important;
+}
+
+.reveal p {
+  font-weight: 300;
+  margin-top: 1.25em;
+  font-family: $font-body !important;
+}
+
+// title and headings
+
+#title-slide {
+  text-align: left;
+
+  .title {
+    color: $body-color;
+    font-size: 1.6em;
+    font-weight: bold;
+    line-height: 0;
+    margin-top: -40px !important; /* Se aumenta la negatividad para acercar el título al borde superior */
+    margin-bottom: -5px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .subtitle {
+    color: $accent;
+    font-size: 1.3em;
+    font-style: italic;
+    margin-top: 5px !important;    /* Se reduce para que el subtítulo esté más cerca del título */
+    margin-bottom: 40px !important; /* Se aumenta el espacio debajo del subtítulo */
+    
+    /* Línea horizontal debajo del subtítulo */
+    &::after {
+      content: "";
+      display: block;
+      width: 73%;    /* Longitud de la línea */
+      height: 3px;   /* Grosor de la línea */
+      background-color: #bbbbbb;  /* Color gris de la línea */
+      margin-top: 10px; /* Espacio entre el subtítulo y la línea */
+      text-align: left;
+    }
+  }
+
+  .institute,
+  .quarto-title-affiliation,
+  .quarto-title-author-email {
+    font-style: italic;
+    font-size: .75em;
+
+  }
+
+  .author,
+  .quarto-title-author-name {
+    color: $body-color;
+  }
+
+  .quarto-title-authors {
+    margin-top: 100px !important; /* Se aumenta el espacio entre el subtítulo y el bloque del autor */
+    display: flex;
+    justify-content: left;
+    font-size: 1em;
+
+
+    .quarto-title-author {
+      padding-left: 0em;
+      padding-right: 0em;
+      width: 100%;
+    }
+  }
+}
+
+.reveal h1 {
+  font-weight: bold;
+  font-size: 1.6em;
+  text-align: center !important;
+  position: relative; /* Permite colocar el subrayado como pseudo-elemento */
+  display: inline-block;
+  font-family: $font-title !important;
+}
+
+.reveal h1:not(#title-slide h1)::before {
+  content: "";
+  display: block;
+  width: 95%; /* Controla la longitud del subrayado */
+  height: 4px; /* Grosor del subrayado */
+  background-color: $accent; /* Color del subrayado */
+  margin: 0 auto 20px auto; /* Espaciado debajo del texto */
+}
+
+.reveal h1:not(#title-slide h1)::after {
+  content: "";
+  display: block;
+  width: 75%; /* Controla la longitud del subrayado */
+  height: 4px; /* Grosor del subrayado */
+  background-color: $accent; /* Color del subrayado */
+  margin: 20px auto 0 auto; /* Espaciado debajo del texto */
+}
+
+.reveal h2 {
+  font-weight: bold;
+  font-size: 1.3em;
+  font-family: $font-heading !important;
+  
+  &::after {
+      content: "";
+      display: block;
+      width: 15%;    /* Longitud de la línea */
+      height: 2px;   /* Grosor de la línea */
+      background-color: $accent;  /* Color gris de la línea */
+      margin-top: 5px; /* Espacio entre el subtítulo y la línea */
+      text-align: left;
+    }
+}
+
+.reveal h3 {
+  color: $accent;
+  font-style: italic;
+  font-weight: 350;
+  font-size: 0.95em;
+  font-family: $font-heading !important;
+}
+
+.reveal h4 {
+  color: $accent2;
+  font-weight: 350;
+  margin-top: 1.25em;
+  font-family: $font-heading !important;
+}
+
+// alerts etc.
+
+.alert {
+  color: $accent2;
+}
+
+.fg {
+  color: var(--col, $jet);
+}
+
+.bg {
+  background-color: var(--col, #fff);
+  padding: 0.1em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Aumentar el tamaño de los chunks de código en Quarto RevealJS */
+.reveal pre.sourceCode code {
+  font-size: 1.5em !important; /* Ajusta el tamaño según tu preferencia */
+  line-height: 1.5 !important; /* Espaciado entre líneas */
+}
+
+/* Aumentar el tamaño del output del código */
+.reveal pre code {
+  font-size: 1.5em !important;  /* Ajusta el tamaño del texto del output */
+  line-height: 1.5 !important;  /* Ajusta la separación entre líneas */
+  padding: 10px !important;
+  border-radius: 5px !important;
+}
+
+.reveal pre code .hl-line {
+  background-color: rgba(255, 255, 0, 0.3) !important;
+  display: block;
+  width: 100%;
+}
+
+// lists
+
+// Unordered lists
+
+.reveal ul {
+  font-weight: 300;
+  padding-left: 16px;
+  font-family: $font-body !important;
+
+  li::marker {
+    color: mix($accent, white, 70%);
+  }
+}
+
+.reveal ul ul {
+  list-style: none;
+
+  li:before {
+    content: $right-arrow;
+    color: mix($accent, white, 60%);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 0.5em;
+  }
+}
+
+// Ordered lists
+
+.reveal ol {
+  font-weight: 300;
+  padding-left: 16px;
+  font-family: $font-body !important;
+
+  li::marker {
+    color: $accent;
+  }
+}
+
+
+.slide-logo {
+  align-content: left;
+  display: block !important;
+  position: fixed !important;
+  bottom: 35px !important;
+  left: 240px !important;
+  max-height: 12% !important;
+  height: 100% !important;
+  width: auto !important;
+  color: $body-color !important;
+}
+
+.slide-menu-button {
+  left: 10px !important;
+  bottom: 10px !important;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 10px !important;
+  right: 10px !important;
+  top: unset !important;
+  color: $body-color !important;
+}
+
+// Same for chalkboard buttons (with an offset)
+
+.reveal .slide-chalkboard-buttons {
+  position: fixed;
+  top: 12px;
+  right: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.reveal .slide-chalkboard-buttons > * {
+  pointer-events: auto;
+}
+
+// Beamer-style button link environment
+
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: $accent;
+  border: 1px solid $accent;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.button::before {
+  content: "▶";
+  margin-right: 5px;
+}
+
+// Special catch for etable environment to ensure these table images
+// don't overflow the slide.
+// See: https://lrberge.github.io/fixest/articles/etable_new_features.html
+
+.grid-container {
+  font-family: $font-body !important;
+}
+
+.etable {
+  width: 100%;
+  height: calc(100% - 3em); /* Adjust 3em based on the height of your header, if necessary */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etable img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
