@@ -21,6 +21,6 @@ Este repositorio incluye todos los materiales impartidos en el seminario de intr
    - **cmdstanr objects**: objetos estiamdos con `{cmdstanr}` para la presentación.
    - **presentation.qmd**: diapositivas de la presentación en quarto.
    - **presentation.html**: formato final de la presentación (no la versión pdf).
-   - **rrs.scss**: aspectos estéticos de la presentación em html.
+   - **rrs.scss**: aspectos estéticos de la presentación en html.
 3. **Stan models**
    - **CFA_marginal.stan**: un ejemplo de modelo factorial confirmatorio utilizando la función de verosimilitud marginal. 
