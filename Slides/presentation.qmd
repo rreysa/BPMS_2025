@@ -3332,7 +3332,7 @@ $$
     -   Computacionalmente costoso, **intratable en bases de datos grandes**.
     -   **Sigue siendo sensible a las priors**, aunque menos que el $BF$.
     -   Asumen que los datos son intercambiables (i.e., no hay un efecto del tiempo).
--   Hay alternativas para algunos de los problenas:
+-   Hay alternativas para algunos de los problemas:
     -   **PSIS-LOO**: versión adaptada a bases de datos grandes.
     -   **Leave-future-one-out** para tener en cuenta la secuencia temporal.
 
